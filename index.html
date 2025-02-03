@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Fun Facts</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            margin: 0;
+            color: #333;
+            transition: background 0.5s ease;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 3em;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .container:hover {
+             transform: translateY(-5px);
+        }
+        h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 0.8em;
+            color: #2c3e50;
+            letter-spacing: 1px;
+        }
+
+        #fact-display {
+            margin: 1.5em 0;
+            min-height: 60px;
+            padding: 1em;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            background-color: rgba(255,255,255,0.5);
+             transition: background-color 0.3s ease;
+        }
+
+          #fact-display:hover {
+            background-color: rgba(255,255,255,0.8);
+        }
+
+        #fact-text {
+            font-size: 1.3em;
+            color: #34495e;
+            line-height: 1.6;
+            font-style: italic;
+            transition: color 0.3s ease;
+        }
+
+        #fact-text:hover{
+            color: #e74c3c;
+        }
+
+        #fact-button {
+             background-color: #3498db;
+            color: white;
+            border: none;
+             padding: 12px 25px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1.1em;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+             margin-top: 15px;
+        }
+
+        #fact-button:hover {
+            background-color: #2980b9;
+              transform: scale(1.05);
+        }
+
+        #fact-button:active {
+            transform: scale(0.95);
+         }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tech Fun Facts</h1>
+        <div id="fact-display">
+            <p id="fact-text">Click the button to get a random tech fact!</p>
+        </div>
+        <button id="fact-button">Get Fact</button>
+    </div>
+    <script>
+        const facts = [
+            "The concept of kindergarten was invented by a German educator named Friedrich Fröbel in 1837.",
+            "The world's first university was the University of Al Quaraouiyine, founded in 859 AD in Fez, Morocco.",
+            "The first known book for children was 'A Little Pretty Pocket-Book', published in 1744.",
+            "The 'Pencil' was not commonly used in schools until the mid-19th century; before that, students used slate and chalk.",
+            "The 'Socratic method', a form of teaching involving asking questions, is named after the classical Greek philosopher Socrates."
+        ];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const factButton = document.getElementById('fact-button');
+            const factText = document.getElementById('fact-text');
+
+            factButton.addEventListener('click', function() {
+                const randomIndex = Math.floor(Math.random() * facts.length);
+                factText.textContent = facts[randomIndex];
+            });
+        });
+    </script>
+</body>
+</html>
